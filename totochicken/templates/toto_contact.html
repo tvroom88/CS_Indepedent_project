@@ -1,0 +1,27 @@
+{% extends 'toto_chicken_restaurant_base.html' %}
+
+
+
+{% block content %}
+    <style>
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+
+    </style>
+
+{# <form class="form-signin" method="post">{% csrf_token %}#}
+    <h1>Contact Us</h1>
+    <form class="form-signin" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-actions">
+            <button type="submit">Send</button>
+        </div>
+    </form>
+
+
+{% endblock content %}

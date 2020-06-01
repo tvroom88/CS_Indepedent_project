@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    {#    style    #}
+    <style type="text/css">
+        #wrapper {
+            width: 1200px;
+            margin: 0 auto;
+            background: #d6e5b3;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .service {
+            padding-top: 30px;
+            border: 10px solid black;
+            width: 300px;
+            height: 300px;
+            margin: 0px auto;
+            {#float: left;#}
+        }
+
+        .row {
+            margin:0 auto;
+        }
+
+    </style>
+
+    <div id="wrapper">
+        <h1>Hi {{ user.username }}. Here is our service</h1>
+
+        <div class="row">
+
+            <div class="service">
+                <img src="{% static 'restaurant_service.png' %}" width="200px" height="200px">
+                <h4><a href="{% url 'restaurant_home_view' %}">restaurant service</a></h4>
+            </div>
+
+            <div class="service">
+                <img src="{% static "chicken_restaurant.png" %}" width="200px" height="200px">
+                <h4><a href="{% url 'toto_restaurant_home_view' %}">toto chicken restaurant</a></h4>
+            </div>
+
+
+             <div class="service">
+                <img src="{% static 'coming_soon.png' %}" width="200px" height="200px">
+                <h4><a href="">Coming Soon</a></h4>
+            </div>
+
+        </div>
+    </div>
+{% endblock content %}
+{#<img class="img-fluid d-block m-auto pb-2" src="{% static 'codingwithmitch_logo.png' %}"#}
+{#                             width="72" height="72">#}

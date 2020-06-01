@@ -1,0 +1,104 @@
+{% extends 'toto_chicken_restaurant_base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+    <style>
+        #banner img {
+            width: 980px;
+            height: 360px;
+        }
+
+        main {
+            /*    background:orange;*/
+            /*    height:400px;*/
+            width: 680px;
+            float: left;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+
+        aside {
+            /*    background:lightblue;*/
+            width: 220px;
+            float: right;
+            margin-top: 29px;
+        }
+
+        .newStyle {
+            font-family: 'Lobster';
+            color: #964b00;
+            margin-bottom: 10px;
+        }
+
+        img.right {
+            float: right;
+            padding-left: 30px;
+            width: 360px;
+        }
+
+        img.left {
+            float: left;
+            padding-right: 30px;
+            margin-bottom: 30px;
+            width: 360px;
+        }
+
+        .aside-image {
+            width: 100%;
+        }
+
+        p {
+            /*    font-size: 1.25em;*/
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+    </style>
+
+    <div id="banner">
+        <img src="{% static 'toto_banner.jpg' %}" alt="banner">
+    </div> <!--end banner-->
+
+    <main>
+
+        <h2 class="newStyle">ToTo is Dakgangjeong Restaurant</h2>
+        <img class="left" src="{% static 'Directions.jpg' %}" alt="chicken_geongjeong">
+        <p>
+            the chicken of the sweet and sour chicken is delivered directly from the factory and always makes
+            healthy chicken with fresh ingredients and honest recipes.
+            Also, Sweet and Sour Chicken is a restaurant specializing in To go (takeout) and is a chicken that was born
+            in a hygienic cooking environment through the opening of the kitchen.</p>
+
+
+        <h2 class="newStyle">What is Dakgangjeong?</h2>
+        <img class="right" src="{% static 'chicken_gangjeong.jpg' %}" alt="chicken_geongjeong">
+
+        <p>Dakgangjeong is crispy Korean fried chicken pieces glazed in a sticky,
+            sweet, and spicy sauce. The dakgangjeong recipe uses bite sized boneless chicken pieces,
+            so it cooks up very fast for a quick snack! The easiest Korean fried chicken
+            recipe you can make!
+        </p>
+    </main>
+
+
+    <aside>
+        <h3 style="text-align: center">location</h3>
+
+
+        <a href="https://www.google.com/maps/place/%EB%98%90%EB%98%90%EB%8B%AD%EA%B0%95%EC%A0%95%EC%88%98%EB%82%B4%EC%A0%90/@37.3773503,127.1136406,17z/data=!3m1!4b1!4m5!3m4!1s0x357b5822a5fbd383:0xbbc7df797030197b!8m2!3d37.3773461!4d127.1158293">
+        <img class="aside-image" src="{% static 'restaurant_address.png' %}" alt="chicken_geongjeong">
+        </a>
+
+        <br>
+        <br>
+        <p>Restaurant Address : South Korea, Gyeonggi-do, Seongnam-si, Bundang-gu,
+            Sunae-dong, 번지 113호 궁전프라자 33-2 KR -3</p>
+
+        <p>Telephone : 131-711-9291</p>
+
+    </aside>
+
+{% endblock content %}

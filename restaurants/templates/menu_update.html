@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style type="text/css">
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+
+        .form-signin .form-control {
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .h3 {
+            text-align: center;
+        }
+    </style>
+
+    {#    {%   for res in restaurant %}#}
+    {#        {{ res }}#}
+    {#     {% endfor %}#}
+    <h2> register new menu </h2>
+
+    <form class="form-signin" method="post">{% csrf_token %}
+        <h3>Restaurant : </h3>
+        <h3>
+            <select id="restaurant_name" name="restaurant_name">
+                {% for res in restaurant %}
+                    <option value="{{ res }}">{{ res }}</option>
+                {% endfor %}
+            </select>
+        </h3>
+
+{#   fields = ('Menu', 'price', 'Info')#}
+        <!-- title -->
+        <div class="form-group">
+            <label for="id_title">Menu</label>
+            <input class="form-control" type="text" name="Menu" id="id_title" placeholder="Title"
+                   value="{{ form.initial.menu }}" required autofocus>
+        </div>
+
+
+        <!-- Image -->
+        <div class="form-group image-group" id="id_image_group">
+             <label for="id_title">Price</label>
+            <input class="form-control" type="number" name="price" id="id_title" placeholder="Title"
+                   value="{{ form.initial.price }}" required autofocus>
+        </div>
+
+        <!-- Body -->
+        <div class="form-group">
+            <label for="id_body">Content</label>
+            <textarea class="form-control" rows="10" type="text" name="Info" id="id_body"
+                      placeholder="This blog is about..."
+                      required>{{ form.initial.info }}</textarea>
+        </div>
+
+
+
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">register new menu</button>
+
+    </form>
+
+
+{% endblock %}

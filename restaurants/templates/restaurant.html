@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <style type="text/css">
+        #menu_board {
+            width: 400px;
+            height: 200px;
+            border : 10px solid black;
+            margin: 5px auto;
+            text-align: center;
+        }
+
+
+        #wrapper {
+            width: 1200px;
+            margin: 0 auto;
+            background: #d6e5b3;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+
+        .third {
+            width: 300px;
+            padding-top: 30px;
+            margin: 0px auto 0px auto;
+            background: lightblue;
+            float: left;
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        .row {
+            margin-top: 60px;
+        }
+
+
+    div#bottom{
+        margin-top: 30px;
+        border: 10px solid black;;
+    }
+    </style>
+
+    <div id="wrapper">
+
+{#        {% for restaurant in restaurant %}#}
+{#            <h3>{{ restaurant.restaurant_name }}</h3>#}
+{#            <h3>{{ restaurant.id }}</h3>#}
+{#        {% endfor %}#}
+
+{#        {% for menu in menus %}#}
+{#            <div id="menu_board">#}
+{#                <h3>{{ menu.Menu }}</h3>#}
+{#                <h3>{{ menu.price }}</h3>#}
+{#                <h3>{{ menu.Info }}</h3>#}
+        {#            </div>#}
+        {##}
+        {#        {% endfor %}#}
+
+        <h1>Restaurant Service Menu</h1>
+
+        {% if user.is_authenticated %}
+
+        <div class="row">
+
+            <div class="third">
+                <img src="{% static 'restaurant.png' %}" width="200px" height="200px">
+                <h4><a href="{% url 'register_new_restaurant' %}">register your restaurant</a></h4>
+            </div><!-- end third -->
+
+            <div class="third">
+                <img src="{% static 'food.jpeg' %}" width="200px" height="200px">
+                <h4><a href="{% url 'register_new_menu' %}">register new menu</a></h4>
+            </div><!-- end third -->
+
+            <div class="third">
+                <img src="{% static 'menu.jpg' %}" width="200px" height="200px">
+                <h4><a href="{% url 'menu_board' %}">menu_board</a></h4>
+            </div><!-- end third -->
+        </div>
+
+        {% else %}
+            <div id = "bottom">
+                <h2> register or login first </h2>
+                <a href="{% url 'register' %}">register</a>
+                <a href="{% url 'login' %}">login</a>
+            </div>
+        {% endif %}
+
+
+    </div>
+{% endblock %}

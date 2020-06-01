@@ -1,0 +1,55 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ToTo Restaurant</title>
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'styles1.css' %}">
+
+</head>
+
+<body>
+    <header>
+    <div class="header-inner">
+
+        <img id="logo" src="{% static 'toto_chicken.jpg' %}" alt="logo">
+        <div class="header-inner-title">
+            <h3>Sweet and Sour Chicken Restaurant</h3>
+            <h1> 또또닭강정</h1>
+        </div>
+    </div>
+
+    <nav id="primary">
+        <ul>
+            <li><a href="{% url 'toto_restaurant_home_view' %}">Home</a></li>
+            <li><a href="{% url 'toto_menu' %}">Menu</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </nav>
+  </header>
+    <div id="wrapper">
+
+        {% block content %}
+
+        {% endblock content %}
+
+        <footer>
+            <ul>
+                <li>Copyright &copy; 2020</li>
+                <li>All Rights Reserved</li>
+                <li>Terms of use</li>
+                <li>Web Design by Jaehong</li>
+                <li><a href="https://validator.w3.org/check?uri=referer">HTML Vaild</a></li>
+            </ul>
+
+        </footer>
+
+
+    </div>
+
+
+
+</body>
+</html>
