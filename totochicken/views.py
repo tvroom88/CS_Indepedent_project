@@ -1,4 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import NewMenu
+
+from .forms import RegisterNewMenuForm
 
 
 # ------------------------------
@@ -23,12 +26,33 @@ def toto_menu_view(request):
     return render(request, 'toto_menu.html')
 
 
-# def toto_contact_view(request):
-#
-#     return render(request, 'toto_contact.html')
+
+def new_menu_view_board(request):
+    context = {}
+    context['newMenus'] = NewMenu.objects.all()
+    return render(request, 'new_menu.html',	context)
 
 
-# new imports that go at the top of the file
+
+
+def toto_register_new_menu_view(request):
+	context = {}
+	if request.POST:
+		form = RegisterNewMenuForm(request.POST, request.FILES or None)
+		if form.is_valid():
+			obj = form.save(commit=False)
+			obj.save()
+			return redirect('toto_new_menu_board')
+		else:
+			context['menu_form'] = form
+	else:  # GET request
+		form = RegisterNewMenuForm()
+		context['menu_form'] = form
+	return render(request, 'toto_register_new_menu.html', context)
+
+
+
+
 
 
 # our view

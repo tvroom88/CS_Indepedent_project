@@ -1,0 +1,74 @@
+{% extends 'toto_chicken_restaurant_base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+    <style>
+
+    .menu_board{
+        {#background: #d6e5b3;#}
+        min-height: 100px;
+        background: yellow;
+        border:1px solid #888;
+    }
+
+    .menu_board a {
+        text-decoration:none;
+    }
+    .menu_container{
+        margin: 40px auto 40px auto;
+        border:3px solid #888;
+        border-radius: 10px;
+        width: 600px;
+        background: #B3DAF2;
+    }
+
+    .menu_container h3{
+        color:brown;
+        margin: 20px 0 20px 200px;
+    }
+
+    .menu_container img{
+        width:200px;
+        height:200px;
+        margin:10px auto;
+        display:block;
+
+
+    }
+
+    input {
+        width: 100%;
+        background: #ffeee6;
+    }
+
+    input[type=submit] {
+        width: auto;
+        padding:10px;
+        margin:10px auto;
+        display:block;
+
+    }
+    </style>
+
+    <div class="menu_board">
+        {% for newMenu in newMenus %}
+
+            <div class="menu_container">
+                {% if newMenu.image %}
+                    <img src="{{ newMenu.image.url }}">
+                {% endif %}
+                <div class="text">
+                    <h3>Menu : {{ newMenu.Menu }}</h3>
+                    <h3>Price : {{ newMenu.price }}$</h3>
+                    <h3>Info : {{ newMenu.Info }}</h3>
+                </div>
+            </div>
+
+        {% endfor %}
+        <a href="{% url 'toto_register_new_menu' %}"><input type="submit" name="submit" value="Add more menu!"></a>
+    </div>
+
+
+{% endblock content %}
